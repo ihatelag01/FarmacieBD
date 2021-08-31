@@ -9,15 +9,16 @@ namespace LibrarieModele
         public string denumire { get; set; }
         public double pret { get; set; }
         public DateTime dataExpirare { get; set; }
-        public int tipDepozitare { get; set; }
+        public string furnizor { get; set; }
+         
 
-        public Medicament(int id, string denumire, double pret, DateTime dataExpirare, int tipDepozitare)
+        public Medicament(int id, string denumire, double pret, DateTime dataExpirare, string furnizor)
         {
             this.id = id;
             this.denumire = denumire;
             this.pret = pret;
             this.dataExpirare = dataExpirare;
-            this.tipDepozitare = tipDepozitare;
+            this.furnizor = furnizor;
         }
 
         public Medicament(DataRow linieDB)
@@ -26,7 +27,8 @@ namespace LibrarieModele
             denumire = linieDB["Denumire"].ToString();
             pret = Convert.ToDouble(linieDB["Pret"].ToString());
             dataExpirare = Convert.ToDateTime(linieDB["DataExpirare"].ToString());
-            tipDepozitare = Convert.ToInt32(linieDB["Depozitare"].ToString());
+            furnizor = linieDB["Furnizor"].ToString();
+
         }
     }
 }

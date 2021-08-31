@@ -29,7 +29,7 @@ namespace InterfataMain
 
                 if ((medicamente != null))
                 {
-                    dataGridMed.DataSource = medicamente.Select(med => new { med.id, med.pret, med.denumire, med.dataExpirare, med.tipDepozitare }).ToList();
+                    dataGridMed.DataSource = medicamente.Select(med => new { med.id, med.pret, med.denumire, med.dataExpirare,med.furnizor}).ToList();
                 }
             }
 
@@ -41,8 +41,9 @@ namespace InterfataMain
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            Medicament m = new Medicament(Convert.ToInt32(textBoxId.Text),textBoxDenumire.Text,Convert.ToDouble(textBoxPret.Text),
-                Convert.ToDateTime(dateTimePicker1.Text),Convert.ToInt32(textBoxDepo.Text));
+            Medicament m = new Medicament(Convert.ToInt32(textBoxId.Text), textBoxDenumire.Text,
+                Convert.ToDouble(textBoxPret.Text),
+                Convert.ToDateTime(dateTimePicker1.Text), textBoxFurnizor.Text);
 
             if(stocareMedicamente.AddMedicament(m))
                 AfisareMedicamente();

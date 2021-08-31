@@ -25,12 +25,14 @@ namespace NivelAccesDate
 
         public bool AddMedicament(Medicament m)
         {
-            return SqlDBHelper.ExecuteNonQuery("insert into Medicamente_AV values(:Id,:Denumire,:Pret,:DataExpirare,:Depozitare)",CommandType.Text,
-                new OracleParameter(":Id",OracleDbType.Int32,m.id,ParameterDirection.Input),
+            return SqlDBHelper.ExecuteNonQuery("insert into Medicamente_AV values(:Id,:Denumire,:Pret,:DataExpirare,:Furnizor)",
+                CommandType.Text,
+                new OracleParameter(":Id", OracleDbType.Int32, m.id, ParameterDirection.Input),
                 new OracleParameter(":Denumire", OracleDbType.NVarchar2, m.denumire, ParameterDirection.Input),
-                new OracleParameter(":Pret",OracleDbType.Decimal,m.pret,ParameterDirection.Input),
-                new OracleParameter(":DataExpirare",OracleDbType.Date,m.dataExpirare,ParameterDirection.Input),
-                new OracleParameter(":Depozitare",OracleDbType.Int32,m.tipDepozitare,ParameterDirection.Input));
+                new OracleParameter(":Pret", OracleDbType.Decimal, m.pret, ParameterDirection.Input),
+                new OracleParameter(":DataExpirare", OracleDbType.Date, m.dataExpirare, ParameterDirection.Input),
+                new OracleParameter(":Furnizor",OracleDbType.NVarchar2,m.furnizor,ParameterDirection.Input));
+
         }
 
         public bool DeleteMedicament(int id)
