@@ -24,6 +24,11 @@ namespace InterfataUtilizator
                         {
                             return new AdministrareMedicamente();
                         }
+
+                        if (tipEntitate == typeof(Furnizor))
+                        {
+                            return new AdministrareFurnizori();
+                        }
                         
                         break;
 

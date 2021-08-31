@@ -28,7 +28,6 @@ namespace LibrarieModele
             pret = Convert.ToDouble(linieDB["Pret"].ToString());
             dataExpirare = Convert.ToDateTime(linieDB["DataExpirare"].ToString());
             furnizor = linieDB["Furnizor"].ToString();
-
         }
     }
 }

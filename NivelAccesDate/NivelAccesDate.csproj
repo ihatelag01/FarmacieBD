@@ -47,7 +47,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdministrareFurnizori.cs" />
     <Compile Include="AdministrareMedicamente.cs" />
+    <Compile Include="IStocareFurnizori.cs" />
     <Compile Include="IStocareFactory.cs" />
     <Compile Include="IStocareMedicamente.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

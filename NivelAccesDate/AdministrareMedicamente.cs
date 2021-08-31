@@ -32,7 +32,6 @@ namespace NivelAccesDate
                 new OracleParameter(":Pret", OracleDbType.Decimal, m.pret, ParameterDirection.Input),
                 new OracleParameter(":DataExpirare", OracleDbType.Date, m.dataExpirare, ParameterDirection.Input),
                 new OracleParameter(":Furnizor",OracleDbType.NVarchar2,m.furnizor,ParameterDirection.Input));
-
         }
 
         public bool DeleteMedicament(int id)

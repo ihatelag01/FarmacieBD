@@ -8,6 +8,5 @@ namespace NivelAccesDate
         List<Medicament> GetMedicamente();
         bool AddMedicament(Medicament m);
         bool DeleteMedicament(int id);
-
     }
 }

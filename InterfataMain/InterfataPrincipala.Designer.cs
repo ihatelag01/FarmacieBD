@@ -40,8 +40,8 @@ namespace InterfataMain
             this.labelData = new System.Windows.Forms.Label();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.textBoxPret = new System.Windows.Forms.TextBox();
-            this.textBoxFurnizor = new System.Windows.Forms.TextBox();
             this.labelFurnizor = new System.Windows.Forms.Label();
+            this.comboBoxFurnizor = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridMed)).BeginInit();
             this.SuspendLayout();
             // 
@@ -143,13 +143,6 @@ namespace InterfataMain
             this.textBoxPret.Size = new System.Drawing.Size(100, 22);
             this.textBoxPret.TabIndex = 9;
             // 
-            // textBoxFurnizor
-            // 
-            this.textBoxFurnizor.Location = new System.Drawing.Point(117, 450);
-            this.textBoxFurnizor.Name = "textBoxFurnizor";
-            this.textBoxFurnizor.Size = new System.Drawing.Size(100, 22);
-            this.textBoxFurnizor.TabIndex = 17;
-            // 
             // labelFurnizor
             // 
             this.labelFurnizor.AutoSize = true;
@@ -160,13 +153,22 @@ namespace InterfataMain
             this.labelFurnizor.TabIndex = 18;
             this.labelFurnizor.Text = "Furnizor:";
             // 
+            // comboBoxFurnizor
+            // 
+            this.comboBoxFurnizor.FormattingEnabled = true;
+            this.comboBoxFurnizor.Location = new System.Drawing.Point(117, 454);
+            this.comboBoxFurnizor.Name = "comboBoxFurnizor";
+            this.comboBoxFurnizor.Size = new System.Drawing.Size(121, 24);
+            this.comboBoxFurnizor.TabIndex = 19;
+            this.comboBoxFurnizor.Click += new System.EventHandler(this.comboBoxFurnizor_Click);
+            // 
             // InterfataPrincipala
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(744, 606);
+            this.Controls.Add(this.comboBoxFurnizor);
             this.Controls.Add(this.labelFurnizor);
-            this.Controls.Add(this.textBoxFurnizor);
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.labelData);
             this.Controls.Add(this.labelPret);
@@ -200,8 +202,8 @@ namespace InterfataMain
         private System.Windows.Forms.Label labelData;
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.TextBox textBoxPret;
-        private System.Windows.Forms.TextBox textBoxFurnizor;
         private System.Windows.Forms.Label labelFurnizor;
+        private System.Windows.Forms.ComboBox comboBoxFurnizor;
     }
 }
 

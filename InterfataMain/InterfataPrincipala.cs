@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using InterfataUtilizator;
@@ -11,6 +12,7 @@ namespace InterfataMain
     public partial class InterfataPrincipala : Form
     {
         IStocareMedicamente stocareMedicamente = (IStocareMedicamente)new StocareFactory().GetTipStocare(typeof(Medicament));
+        IStocareFurnizori stocareFurnizori = (IStocareFurnizori)new StocareFactory().GetTipStocare(typeof(Furnizor));
         public InterfataPrincipala()
         {
             InitializeComponent();
@@ -43,7 +45,7 @@ namespace InterfataMain
         {
             Medicament m = new Medicament(Convert.ToInt32(textBoxId.Text), textBoxDenumire.Text,
                 Convert.ToDouble(textBoxPret.Text),
-                Convert.ToDateTime(dateTimePicker1.Text), textBoxFurnizor.Text);
+                Convert.ToDateTime(dateTimePicker1.Text), comboBoxFurnizor.SelectedItem.ToString());
 
             if(stocareMedicamente.AddMedicament(m))
                 AfisareMedicamente();
@@ -59,6 +61,33 @@ namespace InterfataMain
 
             AfisareMedicamente();
 
+        }
+
+        public void GetListaFurnizori()
+        {
+            try
+            { 
+                var furnizori = stocareFurnizori.GetFurnizori();
+
+                if (furnizori != null)
+                {
+                    foreach (var furnizor in furnizori)
+                    {
+                        comboBoxFurnizor.Items.Add(furnizor.denumire);
+                    }
+                }
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+        }
+
+        private void comboBoxFurnizor_Click(object sender, EventArgs e)
+        {
+            comboBoxFurnizor.Items.Clear();
+            GetListaFurnizori();
         }
     }
 }
