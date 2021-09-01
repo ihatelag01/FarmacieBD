@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using InterfataUtilizator;
@@ -11,8 +12,11 @@ namespace InterfataMain
 {
     public partial class InterfataPrincipala : Form
     {
-        IStocareMedicamente stocareMedicamente = (IStocareMedicamente)new StocareFactory().GetTipStocare(typeof(Medicament));
-        IStocareFurnizori stocareFurnizori = (IStocareFurnizori)new StocareFactory().GetTipStocare(typeof(Furnizor));
+        IStocareMedicamente stocareMedicamente =
+            (IStocareMedicamente) new StocareFactory().GetTipStocare(typeof(Medicament));
+
+        IStocareFurnizori stocareFurnizori = (IStocareFurnizori) new StocareFactory().GetTipStocare(typeof(Furnizor));
+
         public InterfataPrincipala()
         {
             InitializeComponent();
@@ -21,6 +25,7 @@ namespace InterfataMain
         private void InterfataPrincipala_Load(object sender, EventArgs e)
         {
             AfisareMedicamente();
+
         }
 
         public void AfisareMedicamente()
@@ -31,7 +36,8 @@ namespace InterfataMain
 
                 if ((medicamente != null))
                 {
-                    dataGridMed.DataSource = medicamente.Select(med => new { med.id, med.pret, med.denumire, med.dataExpirare,med.furnizor}).ToList();
+                    dataGridMed.DataSource = medicamente
+                        .Select(med => new {med.id, med.pret, med.denumire, med.dataExpirare, med.furnizor}).ToList();
                 }
             }
 
@@ -47,8 +53,11 @@ namespace InterfataMain
                 Convert.ToDouble(textBoxPret.Text),
                 Convert.ToDateTime(dateTimePicker1.Text), comboBoxFurnizor.SelectedItem.ToString());
 
-            if(stocareMedicamente.AddMedicament(m))
+            if (ValidareIdMedicament() && ValidareTextBoxMedicament())
+            {
+                stocareMedicamente.AddMedicament(m);
                 AfisareMedicamente();
+            }
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
@@ -69,13 +78,13 @@ namespace InterfataMain
             try
             {
                 var lst_furnizori = stocareFurnizori.GetFurnizori();
-                 
+
                 foreach (var furnizor in lst_furnizori)
                 {
                     comboBoxFurnizor.Items.Add(furnizor.denumire);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Exceptie" + ex.Message);
             }
@@ -88,10 +97,84 @@ namespace InterfataMain
         }
 
         private void buttonAddFurnizori_Click(object sender, EventArgs e)
-        {
+        { 
             Furnizor f = new Furnizor(textBoxDenumireFurnizor.Text, textBoxAdresa.Text, textBoxTara.Text);
-            stocareFurnizori.AddFurnizor(f);
-            GetListaFurnizori();
+
+            if (ValidareDenumireFurnizor() && ValidareDenumireFurnizor())
+            {
+                stocareFurnizori.AddFurnizor(f);
+                GetListaFurnizori();
+            }
+           
+        }
+
+        private bool ValidareDate()
+        {
+            if (ValidareTextBoxFurnizor() && ValidareDenumireFurnizor() && ValidareTextBoxMedicament() && ValidareIdMedicament())
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private bool ValidareTextBoxMedicament()
+        {
+            if (textBoxDenumire.Text == "" || textBoxDenumire.Text.Length > 20 || textBoxPret.Text == "")
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private bool ValidareIdMedicament()
+        {
+            List<Medicament> list_medicamente = stocareMedicamente.GetMedicamente();
+            bool flag = true;
+            foreach (var medicament in list_medicamente)
+            {
+                if (Int32.Parse(textBoxId.Text) == medicament.id)
+                {
+                    flag = false;
+                }
+            }
+
+            return flag;
+        }
+
+        private bool ValidareTextBoxFurnizor()
+        {
+            bool flag = true;
+            if (textBoxDenumireFurnizor.Text == "" || textBoxDenumireFurnizor.Text.Length > 20 ||
+                textBoxAdresa.Text == "" || textBoxAdresa.Text.Length > 100 || textBoxTara.Text == "" ||
+                textBoxTara.Text.Length > 20)
+            {
+
+                flag = false;
+            }
+
+            return flag;
+        }
+
+
+        private bool ValidareDenumireFurnizor()
+        {
+            List<Furnizor> list_furnizori = stocareFurnizori.GetFurnizori();
+            bool flag = true;
+            foreach (var furnizor in list_furnizori)
+            {
+                if (textBoxDenumireFurnizor.Text == furnizor.denumire)
+                {
+                    flag = false;
+                }
+            }
+
+            return flag;
         }
     }
 }
