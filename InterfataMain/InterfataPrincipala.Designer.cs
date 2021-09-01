@@ -42,6 +42,13 @@ namespace InterfataMain
             this.textBoxPret = new System.Windows.Forms.TextBox();
             this.labelFurnizor = new System.Windows.Forms.Label();
             this.comboBoxFurnizor = new System.Windows.Forms.ComboBox();
+            this.labelDenumireFurnizor = new System.Windows.Forms.Label();
+            this.textBoxDenumireFurnizor = new System.Windows.Forms.TextBox();
+            this.textBoxAdresa = new System.Windows.Forms.TextBox();
+            this.labelAdresa = new System.Windows.Forms.Label();
+            this.textBoxTara = new System.Windows.Forms.TextBox();
+            this.labelTara = new System.Windows.Forms.Label();
+            this.buttonAddFurnizor = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridMed)).BeginInit();
             this.SuspendLayout();
             // 
@@ -162,11 +169,79 @@ namespace InterfataMain
             this.comboBoxFurnizor.TabIndex = 19;
             this.comboBoxFurnizor.Click += new System.EventHandler(this.comboBoxFurnizor_Click);
             // 
+            // labelDenumireFurnizor
+            // 
+            this.labelDenumireFurnizor.AutoSize = true;
+            this.labelDenumireFurnizor.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDenumireFurnizor.Location = new System.Drawing.Point(532, 268);
+            this.labelDenumireFurnizor.Name = "labelDenumireFurnizor";
+            this.labelDenumireFurnizor.Size = new System.Drawing.Size(82, 17);
+            this.labelDenumireFurnizor.TabIndex = 20;
+            this.labelDenumireFurnizor.Text = "Denumire:";
+            // 
+            // textBoxDenumireFurnizor
+            // 
+            this.textBoxDenumireFurnizor.Location = new System.Drawing.Point(632, 265);
+            this.textBoxDenumireFurnizor.Name = "textBoxDenumireFurnizor";
+            this.textBoxDenumireFurnizor.Size = new System.Drawing.Size(100, 22);
+            this.textBoxDenumireFurnizor.TabIndex = 21;
+            // 
+            // textBoxAdresa
+            // 
+            this.textBoxAdresa.Location = new System.Drawing.Point(632, 312);
+            this.textBoxAdresa.Name = "textBoxAdresa";
+            this.textBoxAdresa.Size = new System.Drawing.Size(100, 22);
+            this.textBoxAdresa.TabIndex = 22;
+            // 
+            // labelAdresa
+            // 
+            this.labelAdresa.AutoSize = true;
+            this.labelAdresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAdresa.Location = new System.Drawing.Point(532, 315);
+            this.labelAdresa.Name = "labelAdresa";
+            this.labelAdresa.Size = new System.Drawing.Size(64, 17);
+            this.labelAdresa.TabIndex = 23;
+            this.labelAdresa.Text = "Adresa:";
+            // 
+            // textBoxTara
+            // 
+            this.textBoxTara.Location = new System.Drawing.Point(632, 359);
+            this.textBoxTara.Name = "textBoxTara";
+            this.textBoxTara.Size = new System.Drawing.Size(100, 22);
+            this.textBoxTara.TabIndex = 24;
+            // 
+            // labelTara
+            // 
+            this.labelTara.AutoSize = true;
+            this.labelTara.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTara.Location = new System.Drawing.Point(535, 364);
+            this.labelTara.Name = "labelTara";
+            this.labelTara.Size = new System.Drawing.Size(47, 17);
+            this.labelTara.TabIndex = 25;
+            this.labelTara.Text = "Tara:";
+            // 
+            // buttonAddFurnizor
+            // 
+            this.buttonAddFurnizor.Location = new System.Drawing.Point(538, 407);
+            this.buttonAddFurnizor.Name = "buttonAddFurnizor";
+            this.buttonAddFurnizor.Size = new System.Drawing.Size(194, 23);
+            this.buttonAddFurnizor.TabIndex = 26;
+            this.buttonAddFurnizor.Text = "Adaugare furnizor";
+            this.buttonAddFurnizor.UseVisualStyleBackColor = true;
+            this.buttonAddFurnizor.Click += new System.EventHandler(this.buttonAddFurnizori_Click);
+            // 
             // InterfataPrincipala
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(744, 606);
+            this.Controls.Add(this.buttonAddFurnizor);
+            this.Controls.Add(this.labelTara);
+            this.Controls.Add(this.textBoxTara);
+            this.Controls.Add(this.labelAdresa);
+            this.Controls.Add(this.textBoxAdresa);
+            this.Controls.Add(this.textBoxDenumireFurnizor);
+            this.Controls.Add(this.labelDenumireFurnizor);
             this.Controls.Add(this.comboBoxFurnizor);
             this.Controls.Add(this.labelFurnizor);
             this.Controls.Add(this.buttonDelete);
@@ -204,6 +279,13 @@ namespace InterfataMain
         private System.Windows.Forms.TextBox textBoxPret;
         private System.Windows.Forms.Label labelFurnizor;
         private System.Windows.Forms.ComboBox comboBoxFurnizor;
+        private System.Windows.Forms.Label labelDenumireFurnizor;
+        private System.Windows.Forms.TextBox textBoxDenumireFurnizor;
+        private System.Windows.Forms.TextBox textBoxAdresa;
+        private System.Windows.Forms.Label labelAdresa;
+        private System.Windows.Forms.TextBox textBoxTara;
+        private System.Windows.Forms.Label labelTara;
+        private System.Windows.Forms.Button buttonAddFurnizor;
     }
 }
 

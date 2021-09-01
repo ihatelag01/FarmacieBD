@@ -65,28 +65,32 @@ namespace InterfataMain
 
         public void GetListaFurnizori()
         {
+            comboBoxFurnizor.Items.Clear();
             try
-            { 
-                var furnizori = stocareFurnizori.GetFurnizori();
-
-                if (furnizori != null)
+            {
+                var lst_furnizori = stocareFurnizori.GetFurnizori();
+                 
+                foreach (var furnizor in lst_furnizori)
                 {
-                    foreach (var furnizor in furnizori)
-                    {
-                        comboBoxFurnizor.Items.Add(furnizor.denumire);
-                    }
+                    comboBoxFurnizor.Items.Add(furnizor.denumire);
                 }
             }
-
-            catch (Exception ex)
+            catch(Exception ex)
             {
-                MessageBox.Show(ex.Message.ToString());
+                MessageBox.Show("Exceptie" + ex.Message);
             }
         }
 
         private void comboBoxFurnizor_Click(object sender, EventArgs e)
         {
             comboBoxFurnizor.Items.Clear();
+            GetListaFurnizori();
+        }
+
+        private void buttonAddFurnizori_Click(object sender, EventArgs e)
+        {
+            Furnizor f = new Furnizor(textBoxDenumireFurnizor.Text, textBoxAdresa.Text, textBoxTara.Text);
+            stocareFurnizori.AddFurnizor(f);
             GetListaFurnizori();
         }
     }
