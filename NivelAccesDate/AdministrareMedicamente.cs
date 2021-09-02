@@ -39,5 +39,15 @@ namespace NivelAccesDate
             return SqlDBHelper.ExecuteNonQuery("delete from Medicamente_AV where Id=:Id", CommandType.Text,
                 new OracleParameter(":Id", OracleDbType.Int32, id, ParameterDirection.Input));
         }
+        
+        public bool UpdateMedicamente(Medicament m)
+        {
+            return SqlDBHelper.ExecuteNonQuery("update Medicamente_AV set Id=:Id, Denumire=:Denumire, Pret=:Pret, DataExpirare=:DataExpirare, Furnizor=:Furnizor",CommandType.Text,
+                new  OracleParameter(":Id",OracleDbType.NVarchar2,m.id,ParameterDirection.Input),
+                new OracleParameter(":Denumire",OracleDbType.NVarchar2,m.denumire,ParameterDirection.Input),
+                new OracleParameter(":Pret",OracleDbType.Decimal,m.pret,ParameterDirection.Input),
+                new OracleParameter(":DataExpirare",OracleDbType.Date,m.dataExpirare,ParameterDirection.Input),
+                new OracleParameter(":Furnizor",OracleDbType.NVarchar2,m.furnizor,ParameterDirection.Input));
+        }
     }
 }

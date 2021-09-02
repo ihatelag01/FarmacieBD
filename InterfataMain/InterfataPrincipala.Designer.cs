@@ -62,6 +62,7 @@ namespace InterfataMain
             this.dataGridMed.RowTemplate.Height = 24;
             this.dataGridMed.Size = new System.Drawing.Size(737, 233);
             this.dataGridMed.TabIndex = 0;
+            this.dataGridMed.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridMed_CellDoubleClick);
             // 
             // dateTimePicker1
             // 
@@ -77,7 +78,7 @@ namespace InterfataMain
             this.buttonAdd.ForeColor = System.Drawing.Color.OliveDrab;
             this.buttonAdd.Location = new System.Drawing.Point(3, 505);
             this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(244, 23);
+            this.buttonAdd.Size = new System.Drawing.Size(244, 36);
             this.buttonAdd.TabIndex = 6;
             this.buttonAdd.Text = "Adaugare medicament";
             this.buttonAdd.UseVisualStyleBackColor = false;
@@ -237,7 +238,7 @@ namespace InterfataMain
             this.buttonAddFurnizor.ForeColor = System.Drawing.Color.OliveDrab;
             this.buttonAddFurnizor.Location = new System.Drawing.Point(538, 407);
             this.buttonAddFurnizor.Name = "buttonAddFurnizor";
-            this.buttonAddFurnizor.Size = new System.Drawing.Size(194, 23);
+            this.buttonAddFurnizor.Size = new System.Drawing.Size(194, 38);
             this.buttonAddFurnizor.TabIndex = 26;
             this.buttonAddFurnizor.Text = "Adaugare furnizor";
             this.buttonAddFurnizor.UseVisualStyleBackColor = false;
@@ -250,7 +251,7 @@ namespace InterfataMain
             this.buttonDelete.ForeColor = System.Drawing.Color.OliveDrab;
             this.buttonDelete.Location = new System.Drawing.Point(3, 547);
             this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(244, 23);
+            this.buttonDelete.Size = new System.Drawing.Size(244, 36);
             this.buttonDelete.TabIndex = 16;
             this.buttonDelete.Text = "Stergere medicament";
             this.buttonDelete.UseVisualStyleBackColor = false;
