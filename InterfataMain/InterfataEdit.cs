@@ -31,12 +31,14 @@ namespace InterfataMain
         {
             Medicament med = new Medicament(Convert.ToInt32(labelID.Text),textBoxEditDenumire.Text,Convert.ToDouble(textBoxEditPret.Text)
                 ,dateTimePickerEdit.Value,comboBoxEditFurnizor.SelectedItem.ToString());
+            if (ValidareDenumire() && ValidarePret())
+            {
+                stocareMedicamente.UpdateMedicamente(med);
 
-            stocareMedicamente.UpdateMedicamente(med);
-            
-            interfataPrincipala.AfisareMedicamente();
-             
-            this.Close();
+                this.Close();
+
+                interfataPrincipala.AfisareMedicamente();
+            }
         }
 
         public void GetListaFurnizori()
@@ -77,9 +79,28 @@ namespace InterfataMain
             this.labelID.Text = id;
         }
 
-        private void InterfataEdit_Load(object sender, EventArgs e)
+        private bool ValidareDenumire()
         {
+            bool flag = true;
+            if (textBoxEditDenumire.Text==string.Empty || textBoxEditDenumire.Text.Length>20)
+            {
+                textBoxEditDenumire.ForeColor=Color.Red;
+                flag = false;
+            }
 
+            return flag;
+        }
+
+        private bool ValidarePret()
+        {
+            bool flag = true;
+            if (textBoxEditPret.Text==string.Empty)
+            {
+                textBoxEditPret.ForeColor=Color.Red;
+                flag = false;
+            }
+
+            return flag;
         }
     }
 }

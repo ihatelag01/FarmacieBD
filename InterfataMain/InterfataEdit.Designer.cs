@@ -156,7 +156,7 @@ namespace InterfataMain
             this.Text = "Editare";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.InterfataEdit_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.InterfataEdit_FormClosed);
-            this.Load += new System.EventHandler(this.InterfataEdit_Load);
+            
             this.ResumeLayout(false);
             this.PerformLayout();
 
