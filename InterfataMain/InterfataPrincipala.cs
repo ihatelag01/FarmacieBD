@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Windows.Forms;
 using InterfataUtilizator;
 using LibrarieModele;
@@ -177,7 +178,11 @@ namespace InterfataMain
         private void dataGridMed_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             InterfataEdit interfataEditare = new InterfataEdit();
+            string idMedicament = dataGridMed[0, dataGridMed.CurrentCell.RowIndex].Value.ToString();
+            interfataEditare.SetLabelID(idMedicament);
             interfataEditare.Show();
         }
+
+         
     }
 }

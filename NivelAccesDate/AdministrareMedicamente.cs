@@ -42,7 +42,7 @@ namespace NivelAccesDate
         
         public bool UpdateMedicamente(Medicament m)
         {
-            return SqlDBHelper.ExecuteNonQuery("update Medicamente_AV set Id=:Id, Denumire=:Denumire, Pret=:Pret, DataExpirare=:DataExpirare, Furnizor=:Furnizor",CommandType.Text,
+            return SqlDBHelper.ExecuteNonQuery("update Medicamente_AV set Id=:Id, Denumire=:Denumire, Pret=:Pret, DataExpirare=:DataExpirare, Furnizor=:Furnizor where id=:id",CommandType.Text,
                 new  OracleParameter(":Id",OracleDbType.NVarchar2,m.id,ParameterDirection.Input),
                 new OracleParameter(":Denumire",OracleDbType.NVarchar2,m.denumire,ParameterDirection.Input),
                 new OracleParameter(":Pret",OracleDbType.Decimal,m.pret,ParameterDirection.Input),

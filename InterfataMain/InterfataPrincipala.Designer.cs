@@ -55,6 +55,7 @@ namespace InterfataMain
             // 
             // dataGridMed
             // 
+            this.dataGridMed.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridMed.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridMed.Location = new System.Drawing.Point(3, 12);
             this.dataGridMed.Name = "dataGridMed";
@@ -68,7 +69,7 @@ namespace InterfataMain
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(117, 409);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(244, 22);
+            this.dateTimePicker1.Size = new System.Drawing.Size(100, 22);
             this.dateTimePicker1.TabIndex = 5;
             // 
             // buttonAdd
@@ -78,7 +79,7 @@ namespace InterfataMain
             this.buttonAdd.ForeColor = System.Drawing.Color.OliveDrab;
             this.buttonAdd.Location = new System.Drawing.Point(3, 505);
             this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(244, 36);
+            this.buttonAdd.Size = new System.Drawing.Size(214, 36);
             this.buttonAdd.TabIndex = 6;
             this.buttonAdd.Text = "Adaugare medicament";
             this.buttonAdd.UseVisualStyleBackColor = false;
@@ -170,7 +171,7 @@ namespace InterfataMain
             this.comboBoxFurnizor.FormattingEnabled = true;
             this.comboBoxFurnizor.Location = new System.Drawing.Point(117, 454);
             this.comboBoxFurnizor.Name = "comboBoxFurnizor";
-            this.comboBoxFurnizor.Size = new System.Drawing.Size(121, 24);
+            this.comboBoxFurnizor.Size = new System.Drawing.Size(100, 24);
             this.comboBoxFurnizor.TabIndex = 19;
             this.comboBoxFurnizor.Click += new System.EventHandler(this.comboBoxFurnizor_Click);
             // 
@@ -251,7 +252,7 @@ namespace InterfataMain
             this.buttonDelete.ForeColor = System.Drawing.Color.OliveDrab;
             this.buttonDelete.Location = new System.Drawing.Point(3, 547);
             this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(244, 36);
+            this.buttonDelete.Size = new System.Drawing.Size(214, 36);
             this.buttonDelete.TabIndex = 16;
             this.buttonDelete.Text = "Stergere medicament";
             this.buttonDelete.UseVisualStyleBackColor = false;
