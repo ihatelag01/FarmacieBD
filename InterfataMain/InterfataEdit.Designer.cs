@@ -154,8 +154,7 @@ namespace InterfataMain
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "InterfataEdit";
             this.Text = "Editare";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.InterfataEdit_FormClosing);
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.InterfataEdit_FormClosed);
+             
             
             this.ResumeLayout(false);
             this.PerformLayout();

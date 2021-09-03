@@ -162,7 +162,9 @@ namespace InterfataMain
         private bool ValidareDenumireFurnizor()
         {
             List<Furnizor> list_furnizori = stocareFurnizori.GetFurnizori();
+
             bool flag = true;
+
             foreach (var furnizor in list_furnizori)
             {
                 if (textBoxDenumireFurnizor.Text == furnizor.denumire)

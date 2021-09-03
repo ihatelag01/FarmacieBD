@@ -34,10 +34,11 @@ namespace InterfataMain
             if (ValidareDenumire() && ValidarePret())
             {
                 stocareMedicamente.UpdateMedicamente(med);
-
+                if (System.Windows.Forms.Application.OpenForms["InterfataPrincipala"]!=null)
+                {
+                    (System.Windows.Forms.Application.OpenForms["InterfataPrincipala"] as InterfataPrincipala).AfisareMedicamente();
+                }
                 this.Close();
-
-                interfataPrincipala.AfisareMedicamente();
             }
         }
 
@@ -63,17 +64,7 @@ namespace InterfataMain
         {
             GetListaFurnizori();
         }
-
-        private void InterfataEdit_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            interfataPrincipala.AfisareMedicamente();
-        }
-
-        private void InterfataEdit_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            interfataPrincipala.AfisareMedicamente();
-        }
-
+        
         public void SetLabelID(string id)
         {
             this.labelID.Text = id;
