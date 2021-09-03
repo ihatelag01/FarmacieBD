@@ -37,6 +37,7 @@ namespace InterfataUtilizator
                         break;
                 }
             }
+
             return null;
         }
     }

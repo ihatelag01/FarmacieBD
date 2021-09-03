@@ -5,29 +5,32 @@ namespace LibrarieModele
 {
     public class Medicament
     {
-        public int id { get; set; }
-        public string denumire { get; set; }
-        public double pret { get; set; }
-        public DateTime dataExpirare { get; set; }
-        public string furnizor { get; set; }
-         
+        public int ID { get; set; }
+
+        public string Denumire { get; set; }
+
+        public double Pret { get; set; }
+
+        public DateTime DataExpirare { get; set; }
+
+        public string Furnizor { get; set; }
 
         public Medicament(int id, string denumire, double pret, DateTime dataExpirare, string furnizor)
         {
-            this.id = id;
-            this.denumire = denumire;
-            this.pret = pret;
-            this.dataExpirare = dataExpirare;
-            this.furnizor = furnizor;
+            this.ID = id;
+            this.Denumire = denumire;
+            this.Pret = pret;
+            this.DataExpirare = dataExpirare;
+            this.Furnizor = furnizor;
         }
 
         public Medicament(DataRow linieDB)
         {
-            id = Convert.ToInt32(linieDB["Id"].ToString());
-            denumire = linieDB["Denumire"].ToString();
-            pret = Convert.ToDouble(linieDB["Pret"].ToString());
-            dataExpirare = Convert.ToDateTime(linieDB["DataExpirare"].ToString());
-            furnizor = linieDB["Furnizor"].ToString();
+            ID = Convert.ToInt32(linieDB["Id"].ToString());
+            Denumire = linieDB["Denumire"].ToString();
+            Pret = Convert.ToDouble(linieDB["Pret"].ToString());
+            DataExpirare = Convert.ToDateTime(linieDB["DataExpirare"].ToString());
+            Furnizor = linieDB["Furnizor"].ToString();
         }
     }
 }

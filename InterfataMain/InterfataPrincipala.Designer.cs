@@ -241,7 +241,7 @@ namespace InterfataMain
             this.buttonAddFurnizor.Name = "buttonAddFurnizor";
             this.buttonAddFurnizor.Size = new System.Drawing.Size(194, 38);
             this.buttonAddFurnizor.TabIndex = 26;
-            this.buttonAddFurnizor.Text = "Adaugare furnizor";
+            this.buttonAddFurnizor.Text = "Adaugare Furnizor";
             this.buttonAddFurnizor.UseVisualStyleBackColor = false;
             this.buttonAddFurnizor.Click += new System.EventHandler(this.buttonAddFurnizori_Click);
             // 

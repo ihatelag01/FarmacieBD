@@ -51,7 +51,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ComboItem.cs" />
     <Compile Include="InterfataEdit.cs">
       <SubType>Form</SubType>
     </Compile>

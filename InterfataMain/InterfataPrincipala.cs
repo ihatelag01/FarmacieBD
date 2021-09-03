@@ -15,7 +15,7 @@ namespace InterfataMain
     {
         IStocareMedicamente stocareMedicamente =
             (IStocareMedicamente)new StocareFactory().GetTipStocare(typeof(Medicament));
-
+        
         IStocareFurnizori stocareFurnizori = (IStocareFurnizori)new StocareFactory().GetTipStocare(typeof(Furnizor));
 
         public InterfataPrincipala()
@@ -37,7 +37,8 @@ namespace InterfataMain
                 if ((medicamente != null))
                 {
                     dataGridMed.DataSource = medicamente
-                        .Select(med => new { med.id, med.pret, med.denumire, med.dataExpirare, med.furnizor }).ToList();
+                        .Select(med => new {ID = med.ID, Pret = med.Pret, Denumire = med.Denumire, DataExpirare = med.DataExpirare,
+                            Furnizor = med.Furnizor }).ToList();
                 }
             }
 
@@ -66,13 +67,12 @@ namespace InterfataMain
             int id = Int32.Parse(dataGridMed[0, inregistareSelectata].Value.ToString());
 
             stocareMedicamente.DeleteMedicament(id);
-
             AfisareMedicamente();
-
         }
         public void GetListaFurnizori()
         {
             comboBoxFurnizor.Items.Clear();
+
             try
             {
                 var lst_furnizori = stocareFurnizori.GetFurnizori();
@@ -93,6 +93,7 @@ namespace InterfataMain
             comboBoxFurnizor.Items.Clear();
             GetListaFurnizori();
         }
+
         private void buttonAddFurnizori_Click(object sender, EventArgs e)
         {
             Furnizor f = new Furnizor(textBoxDenumireFurnizor.Text, textBoxAdresa.Text, textBoxTara.Text);
@@ -103,6 +104,7 @@ namespace InterfataMain
                 GetListaFurnizori();
             }
         }
+
         private bool ValidareDate()
         {
             if (ValidareTextBoxFurnizor() && ValidareDenumireFurnizor() && ValidareTextBoxMedicament() && ValidareIdMedicament())
@@ -114,6 +116,7 @@ namespace InterfataMain
                 return false;
             }
         }
+
         private bool ValidareTextBoxMedicament()
         {
             if (textBoxDenumire.Text == "" || textBoxDenumire.Text.Length > 20 || textBoxPret.Text == "")
@@ -126,6 +129,7 @@ namespace InterfataMain
                 return true;
             }
         }
+
         private bool ValidareIdMedicament()
         {
             List<Medicament> list_medicamente = stocareMedicamente.GetMedicamente();
@@ -134,7 +138,7 @@ namespace InterfataMain
 
             foreach (var medicament in list_medicamente)
             {
-                if (Int32.Parse(textBoxId.Text) == medicament.id)
+                if (Int32.Parse(textBoxId.Text) == medicament.ID)
                 {
                     label_ID.ForeColor = Color.Red;
                     flag = false;
@@ -143,6 +147,7 @@ namespace InterfataMain
 
             return flag;
         }
+
         private bool ValidareTextBoxFurnizor()
         {
             bool flag = true;
@@ -159,6 +164,7 @@ namespace InterfataMain
 
             return flag;
         }
+
         private bool ValidareDenumireFurnizor()
         {
             List<Furnizor> list_furnizori = stocareFurnizori.GetFurnizori();
@@ -184,7 +190,5 @@ namespace InterfataMain
             interfataEditare.SetLabelID(idMedicament);
             interfataEditare.Show();
         }
-
-         
     }
 }

@@ -10,6 +10,7 @@ namespace NivelAccesDate
    public interface IStocareFurnizori:IStocareFactory
     {
         List<Furnizor> GetFurnizori();
+
         bool AddFurnizor(Furnizor f);
     }
 }

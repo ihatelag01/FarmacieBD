@@ -19,7 +19,9 @@ namespace NivelAccesDate
         public List<Furnizor> GetFurnizori()
         {
             var result = new List<Furnizor>();
+
             var dsFurnizori = SqlDBHelper.ExecuteDataSet("select * from Furnizori_AV", CommandType.Text);
+
             foreach (DataRow linieDB in dsFurnizori.Tables[0].Rows)
             {
                 result.Add(new Furnizor(linieDB));

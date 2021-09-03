@@ -10,7 +10,9 @@ namespace LibrarieModele
    public class Furnizor
     {
         public string denumire { get; set; }
+
         public string adresa { get; set; }
+
         public string tara { get; set; }
 
         public Furnizor(string denumire, string adresa, string tara)
@@ -22,7 +24,7 @@ namespace LibrarieModele
 
         public Furnizor(DataRow linieDB)
         {
-            this.denumire = linieDB["denumire"].ToString();
+            this.denumire = linieDB["Denumire"].ToString();
             this.adresa = linieDB["adresa"].ToString();
             this.tara = linieDB["tara_origine"].ToString();
         }
