@@ -58,6 +58,7 @@ namespace InterfataMain
             {
                 stocareMedicamente.AddMedicament(m);
                 AfisareMedicamente();
+                ResetTexBoxMedicament();
             }
         }
         private void buttonDelete_Click(object sender, EventArgs e)
@@ -101,6 +102,7 @@ namespace InterfataMain
             if (ValidareTextBoxFurnizor() && ValidareDenumireFurnizor())
             {
                 stocareFurnizori.AddFurnizor(f);
+                ResetTextBoxFurnizor();
                 GetListaFurnizori();
             }
         }
@@ -189,6 +191,22 @@ namespace InterfataMain
             string idMedicament = dataGridMed[0, dataGridMed.CurrentCell.RowIndex].Value.ToString();
             interfataEditare.SetLabelID(idMedicament);
             interfataEditare.Show();
+        }
+
+        private void ResetTexBoxMedicament()
+        {
+            textBoxDenumire.Text=String.Empty;
+            textBoxId.Text=String.Empty;
+            textBoxPret.Text=String.Empty;
+            dateTimePicker1.ResetText();
+            comboBoxFurnizor.ResetText();
+        }
+
+        private void ResetTextBoxFurnizor()
+        {
+            textBoxDenumireFurnizor.Text=String.Empty;
+            textBoxAdresa.Text=String.Empty;
+            textBoxTara.Text=String.Empty;
         }
     }
 }
